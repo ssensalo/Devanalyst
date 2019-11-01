@@ -1,0 +1,69 @@
+/*-- 22. Testimonials --*/
+
+.testimonials .single-testimonial {
+    /* background-color: #ffffff; */
+    padding: 80px 100px 50px 100px;
+    position: relative;
+    margin-bottom: 30px;
+    border-radius: 3px;
+}
+
+.testimonials .single-testimonial:before {
+    content: "\f0b1";
+    font-family: 'icofont';
+    position: absolute;
+    left: 50%;
+    top: 30px;
+    font-size: 40px;
+    color: #e8e8e8;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.testimonials .single-testimonial .testimonial-text {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.testimonials .testimonial-img {
+    position: absolute;
+    left: 50%;
+    bottom: -30px;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.owl-controls .owl-nav {
+    text-align: center;
+}
+
+.owl-controls .owl-nav > div {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    /* background-color: #e8e8e8; */
+    text-align: center;
+    line-height: 40px;
+    border-radius: 2px;
+    margin: 10px 5px;
+    color: #969696;
+    z-index: 0;
+}
+
+.testimonials .owl-controls .owl-nav > div {
+    position: absolute;
+    left: -25px;
+    top: 50%;
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+}
+
+.testimonials .owl-controls .owl-nav > div.owl-next {
+    left: auto;
+    right: -25px;
+}
