@@ -20,6 +20,13 @@ if($_POST['blog']) {
 
                                 move_uploaded_file($_FILES["image"]["tmp_name"], "uploads/" . $_FILES["image"]["name"]);
                                 $thumbnails = "uploads/" . $_FILES["image"]["name"];
+    
+    $imagethumb = addslashes(file_get_contents($_FILES['image_thumb']['tmp_name']));
+                                $imagethumb_name = addslashes($_FILES['image_thumb']['name']);
+                                $imagethumb_size = getimagesize($_FILES['image_thumb']['tmp_name']);
+
+                                move_uploaded_file($_FILES["image_thumb"]["tmp_name"], "uploads/small/" . $_FILES["image_thumb"]["name"]);
+                                $imagethumbnails = "uploads/small/" . $_FILES["image_thumb"]["name"];
     $message = stripslashes(trim($_POST['message']));
     if (empty($blogTitle)) {
         $errors['blogTitle'] = 'BlogTitle is required.';
@@ -38,16 +45,16 @@ if($_POST['blog']) {
         $data['success'] = false;
         $data['errors']  = $errors;
     } else {
-		$query2 = 'SELECT *  FROM  blog  where message="'.$message.'" AND date="'.$date.'" AND title="'.$blogTitle.'" AND image ="'.$thumbnails.'"';
+		$query2 = 'SELECT *  FROM  blog  where message="'.$message.'" AND date="'.$date.'" AND title="'.$blogTitle.'" AND image ="'.$thumbnails.'" AND thumb ="'.$imagethumbnails.'"';
 
 
 $result = mysqli_query($db, $query2);
 
 if($result){
 }else{
-
+    
 $query = 'INSERT INTO blog 
-            VALUES (0,"'.$message.'", "'.$blogTitle.'","'.$date.'", "'.$thumbnails.'" )';
+            VALUES (0,"'.$message.'", "'.$blogTitle.'","'.$date.'", "'.$thumbnails.'", "'.$imagethumbnails.'")';
 					  
 
 
@@ -181,49 +188,39 @@ a{
                         </button>
                         <p class="navbar-brand" href="#home-area"><img src="images/logoNew 1.jpg" alt="" width="150px" height="150px"></p>
                     </div>
-
-
-                   
-                   <div class="collapse navbar-collapse navbar-right" id="mainmenu">
+                    <div class="collapse navbar-collapse navbar-right" id="mainmenu">
                         <ul class="nav navbar-nav navbar-right help-menu">
-                            <!-- <li><a href=""><i class="icofont icofont-user-alt-4"></i></a></li> -->
+                            <li><a href=""><i class="icofont icofont-user-alt-4"></i></a></li>
                             <li><a href="#search-box" data-toggle="collapse"><i class="icofont icofont-search-alt-2"></i></a></li>
                             <li class="select-cuntry">
                                 <select name="counter" id="counter">
-                                    <option value="ENG">Eng</option>
+                                    <option value="ENG">ENG</option>
                                 </select>
                             </li>
                         </ul>
                         <ul class="nav navbar-nav primary-menu">
-                            <li class=""><a href="index.php#home-area">Home</a></li>
+                            <li class="active"><a href="index.php#home-area">Home</a></li>
                             <li class="dropdown"><a>About</a>
                                 <ul class="dropdown-content">
                                 
                                     <li><a href="team.php#team-area" style="text-transform: none;">Who we are</a></li>
                                     <li><a href="about.php#about-area" style="text-transform: none;">What we do</a></li>
-                                    <li><a href="#footer-area" style="text-transform: none;">Where we are</a></li>
+                                    <li><a href="#footer-area" style="text-transform: none;">where we are</a></li>
                                     <li><a href="profile.php#profile-area" style="text-transform: none;">Company Profile</a></li>
                                 </ul></li>
                             <li><a href="projects.php#projects">Projects</a></li>
-                            <li><a href="aid.php#aid-area">Analyst Aid</a></li>
+                            <li><a href="aid.php#aid-area">Our Aid</a></li>
                             <li class="dropdown"><a>Services</a>
                                 <ul class="dropdown-content">
                                     <li><a href="hosting.php#service-area" style="text-transform: none;">Web Hosting</a></li>
                                     <li><a href="trainings.php#service-area" style="text-transform: none;">Training</a></li>
                                     <li><a href="stratcomm.php#service-area" style="text-transform: none;">Communication</a></li>
                                     <li><a href="public.php#service-area" style="text-transform: none;">Public Relations</a></li>
-                                    <li><a href="services.php#service-area" style="text-transform: none;">Other services</a></li>
-                                    <li><a href="services.php#service-area" style="text-transform: none;">Agribusiness</a></li>
+                                    <li><a href="services.php#service-area" style="text-transform: none;">Other Sarvices</a></li>
                                 </ul></li>
-                            <li><a href="publish.php">Publications</a></li>
-                            <li class="active"><a href="contact.php#contact-area">Contact</a></li>
+                            <li><a href="contact.php#contact-area">Contact</a></li>
                         </ul>
                     </div>
-
-
-
-
-
                 </div>
             </div>
         </div>
@@ -267,13 +264,16 @@ a{
                             <form   action="blog.php" method="post" enctype="multipart/form-data">
                                 <div class="form-double">
                                     <input type="text" id="form-name" name="blogTitle" placeholder="blog Title" required="required">
+                                    <label>Image:</label>
                                     <input type="file" name="image" placeholder="select image">
+                                    <label>Image Thumbnail:
+                                    <input type="file" name="image_thumb" placeholder="select image thumbnail"></label>
                                 </div>
                                 <div class="form-double">
                                     <input type="date" name="date" style="width: calc(50% - 15px);float:left;outline:none;padding: 15px; margin-bottom: 20px; width: 100%; display: block; border: none; border-bottom: 1px solid #e8e8e8;"  id="form-name" name="form-name" placeholder="Your Email" required="required">
                                    
                                 </div>
-                                <textarea  name="message" id="form-message" rows="2" maxlength="100" required="required" placeholder="Blog Message"></textarea>
+                                <textarea  name="message" id="form-message" rows="2" maxlength="400" required="required" placeholder="Blog Message"></textarea>
                                 <input type="submit" name="blog" class="bttn bttn-primary" value="Send Now">
                             </form>
                         </div>
@@ -282,7 +282,7 @@ a{
                 </div>
             </div>
         </div>
-    </section>
+    </section><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 	 <!-- Blog-area -->
     <section class="section-padding" id="blog-area">
         <div class="container">
@@ -354,9 +354,84 @@ a{
     <div id="maps"></div>
 
 
-      <!-- Footer
- ================================================== -->
- <?php include_once("footer-area.php"); ?>
+       <!-- Footer-Area -->
+       <footer class="footer-area" id="footer-area">
+        <div class="footer-top section-padding footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-md-3">
+                        <div class="footer-text">
+                            <h4 class="upper">the development analyst</h4>
+                            <p>P.O Box 26162,<br /> Kampala, Uganda<br />Suite 3, Guild Cateen, Makerere University
+                            <br />  Tel: +256-785369829/ +256-700369829/ +266-68475203<br />
+                                Email: info@devanalyst.org</p>
+                            <div class="social-menu">
+                                <a href="#"><i class="icofont icofont-social-facebook"></i></a>
+                                <a href="#"><i class="icofont icofont-social-twitter"></i></a>
+                                <a href="#"><i class="icofont icofont-social-google-plus"></i></a>
+                                <a href="#"><i class="icofont icofont-social-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-2 col-md-offset-1">
+                        <div class="footer-single">
+                            <h4 class="upper">News</h4>
+                            <ul>
+                            <li><a href="team.php#team-area">Team</a></li>
+                                <li><a href="about.php#projects">Completed Projects</a></li> 
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-2">
+                        <div class="footer-single">
+                            <h4 class="upper">Company</h4>
+                            <ul>
+                                
+                                <li><a href="about.php#about-area">About</a></li>
+                                <li><a href="index.php#services">Services</a></li>
+                                <li><a href="#">Development Aid</a></li>
+                                <!-- <li><a href="#">Price</a></li> -->
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-2">
+                        <div class="footer-single">
+                            <h4 class="upper">Resources</h4>
+                            <ul>
+                                <li><a href="contact.php#contact-area">Support</a></li>
+                                <li><a href="contact.php#contact-area">Contact</a></li>
+                                <!-- <li><a href="#">Privacy &amp; Term</a></li> -->
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-2">
+                        <div class="footer-single">
+                            <h4 class="upper">Services</h4>
+                            <ul>
+                                <li><a href="trainings.php#service-area">Trainings</a></li>
+                                <li><a href="stratcomm.php#service-area">Strategic Communication</a></li>
+                                <li><a href="hosting.php#service-area">Web Development &amp; Hosting</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <p class="copyright">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Devanalyst.</p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer-Area / -->
+
+
 
     <!--Vendor-JS-->
     <script src="js/vendor/jquery-1.12.4.min.js"></script>

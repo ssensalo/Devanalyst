@@ -187,21 +187,19 @@ a{
                         </button>
                         <p class="navbar-brand" href="#home-area"><img src="images/logoNew 1.jpg" alt="" width="150px" height="150px"></p>
                     </div>
-
-
-                  
-                   <div class="collapse navbar-collapse navbar-right" id="mainmenu">
+                    <div class="collapse navbar-collapse navbar-right" id="mainmenu">
                         <ul class="nav navbar-nav navbar-right help-menu">
                             <!-- <li><a href=""><i class="icofont icofont-user-alt-4"></i></a></li> -->
                             <li><a href="#search-box" data-toggle="collapse"><i class="icofont icofont-search-alt-2"></i></a></li>
                             <li class="select-cuntry">
                                 <select name="counter" id="counter">
-                                    <option value="ENG">Eng</option>
+                                    <option value="ENG">ENG</option>
+                                    
                                 </select>
                             </li>
                         </ul>
                         <ul class="nav navbar-nav primary-menu">
-                            <li class=""><a href="index.php#home-area">Home</a></li>
+                            <li><a href="index.php#home-area">Home</a></li>
                             <li class="dropdown"><a>About</a>
                                 <ul class="dropdown-content">
                                 
@@ -219,14 +217,12 @@ a{
                                     <li><a href="stratcomm.php#service-area" style="text-transform: none;">Communication</a></li>
                                     <li><a href="public.php#service-area" style="text-transform: none;">Public Relations</a></li>
                                     <li><a href="services.php#service-area" style="text-transform: none;">Other services</a></li>
-                                    <li><a href="services.php#service-area" style="text-transform: none;">Agribusiness</a></li>
+                                    <li><a href="agribusiness.php#service-area" style="text-transform: none;">Agribusiness</a></li>
                                 </ul></li>
                             <li><a href="publish.php">Publications</a></li>
                             <li><a href="contact.php#contact-area">Contact</a></li>
                         </ul>
                     </div>
-
-
                 </div>
             </div>
         </div>
@@ -241,7 +237,7 @@ a{
                 <div class="row">
                 <div class="col-xs-12 col-sm-10 col-md-8"><br /><br /><br /><br />
                         <div class="header-text">
-                            <h2 class="header-title wow fadeInUp upper" style="font-size:30px">Strategic Communications &amp; inovative management for an <em style="color:#ff7605;">unpredictable</em> world<span class="dot"></span></h2>
+                            <h2 class="header-title wow fadeInUp upper" style="font-size:30px">Strategic Communications &amp; inovative management for an unpredictable<em style="color:#ff7605;"></em> world<span class="dot"></span></h2>
                             <!-- <div class="wow fadeInUp" data-wow-delay="0.5s"><q style="font-size:25px"></q></div> -->
                             <div class="wow fadeInUp" data-wow-delay="0.7s">
                                 <a href="contact.php#contact-area" class="bttn bttn-sm bttn-primary">Contact Now</a>
@@ -433,9 +429,80 @@ nt(MWE)
         </div>
     </section>
        <!-- Footer-Area -->
-     <!-- Footer
- ================================================== -->
- <?php include_once("footer-area.php"); ?>
+       <footer class="footer-area" id="footer-area">
+        <div class="footer-top section-padding footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-md-3">
+                        <div class="footer-text">
+                            <h4 class="upper">the development analyst</h4>
+                            <p>P.O Box 26162,<br /> Kampala, Uganda<br />Suite 3, Guild Cateen, Makerere University
+                            <br />    Tel: +256-785369829/ +256-700369829/ +266-68475203<br />
+                                Email: info@devanalyst.org</p>
+                            <div class="social-menu">
+                                <a href="#"><i class="icofont icofont-social-facebook"></i></a>
+                                <a href="#"><i class="icofont icofont-social-twitter"></i></a>
+                                <a href="#"><i class="icofont icofont-social-google-plus"></i></a>
+                                <a href="#"><i class="icofont icofont-social-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-2 col-md-offset-1">
+                        <div class="footer-single">
+                            <h4 class="upper">News</h4>
+                            <ul>
+                                 <li><a href="team.php#team-area">Team</a></li>
+                                <li><a href="about.php#projects">Completed Projects</a></li> 
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-2">
+                        <div class="footer-single">
+                            <h4 class="upper">Company</h4>
+                            <ul>
+                                
+                                <li><a href="about.php#about-area">About</a></li>
+                                <li><a href="index.php#services">Services</a></li>
+                                <li><a href="#">Development Aid</a></li>
+                                <!-- <li><a href="#">Price</a></li> -->
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-2">
+                        <div class="footer-single">
+                            <h4 class="upper">Resources</h4>
+                            <ul>
+                                <li><a href="contact.php#contact-area">Support</a></li>
+                                <li><a href="contact.php#contact-area">Contact</a></li>
+                                <!-- <li><a href="#">Privacy &amp; Term</a></li> -->
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-2">
+                        <div class="footer-single">
+                            <h4 class="upper">Services</h4>
+                            <ul>
+                                <li><a href="trainings.php#service-area">Trainings</a></li>
+                                <li><a href="stratcomm.php#service-area">Strategic Communication</a></li>
+                                <li><a href="hosting.php#service-area">Web Development &amp; Hosting</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <p class="copyright">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Devanalyst.</p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
     <!-- Footer-Area / -->
 
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>

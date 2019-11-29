@@ -20,6 +20,13 @@ if($_POST['blog']) {
 
                                 move_uploaded_file($_FILES["image"]["tmp_name"], "uploads/" . $_FILES["image"]["name"]);
                                 $thumbnails = "uploads/" . $_FILES["image"]["name"];
+
+ $imagethumb = addslashes(file_get_contents($_FILES['image_thumb']['tmp_name']));
+                                $imagethumb_name = addslashes($_FILES['image_thumb']['name']);
+                                $imagethumb_size = getimagesize($_FILES['image_thumb']['tmp_name']);
+
+                                move_uploaded_file($_FILES["image_thumb"]["tmp_name"], "uploads/small/" . $_FILES["image_thumb"]["name"]);
+                                $imagethumbnails = "uploads/small/" . $_FILES["image_thumb"]["name"];
     $message = stripslashes(trim($_POST['message']));
     if (empty($blogTitle)) {
         $errors['blogTitle'] = 'BlogTitle is required.';
@@ -41,7 +48,7 @@ if($_POST['blog']) {
 		$json = array();
 
 $query = 'INSERT INTO blog 
-            VALUES (null, "'.$message.'", "'.$blogTitle.'","'.$date.'", "'.$thumbnails.'" )';
+            VALUES (null, "'.$message.'", "'.$blogTitle.'","'.$date.'", "'.$thumbnails.'", "'.$imagethumbnails.'" )';
 					  
 
 

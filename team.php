@@ -79,7 +79,7 @@ if($db->query($query) == TRUE){
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Title -->
-    <title>The Development Analyst</title>
+    <title>DEV Analyst LTD</title>
     <!-- Place favicon.ico in the root directory -->
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     <link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
@@ -145,9 +145,9 @@ button:hover, a:hover {
 .footer-single h4{
     color: #ffffff;
 }
-/*p{
+p{
     color:#0d0d0d;
-}*/
+}
 </style>
 </head>
 
@@ -179,20 +179,18 @@ button:hover, a:hover {
                         </button>
                         <p class="navbar-brand"><img src="images/logoNew 1.jpg" alt="" width="150px" height="150px"></p>
                     </div>
-
-
-                   <div class="collapse navbar-collapse navbar-right" id="mainmenu">
+                    <div class="collapse navbar-collapse navbar-right" id="mainmenu">
                         <ul class="nav navbar-nav navbar-right help-menu">
                             <!-- <li><a href=""><i class="icofont icofont-user-alt-4"></i></a></li> -->
                             <li><a href="#search-box" data-toggle="collapse"><i class="icofont icofont-search-alt-2"></i></a></li>
                             <li class="select-cuntry">
                                 <select name="counter" id="counter">
-                                    <option value="ENG">Eng</option>
+                                    <option value="ENG">ENG</option>
                                 </select>
                             </li>
                         </ul>
                         <ul class="nav navbar-nav primary-menu">
-                            <li class=""><a href="index.php#home-area">Home</a></li>
+                            <li ><a href="index.php#home-area">Home</a></li>
                             <li class="dropdown active"><a>About</a>
                                 <ul class="dropdown-content">
                                 
@@ -210,14 +208,12 @@ button:hover, a:hover {
                                     <li><a href="stratcomm.php#service-area" style="text-transform: none;">Communication</a></li>
                                     <li><a href="public.php#service-area" style="text-transform: none;">Public Relations</a></li>
                                     <li><a href="services.php#service-area" style="text-transform: none;">Other services</a></li>
-                                    <li><a href="services.php#service-area" style="text-transform: none;">Agribusiness</a></li>
+                                    <li><a href="agribusiness.php#service-area" style="text-transform: none;">Agribusiness</a></li>
                                 </ul></li>
                             <li><a href="publish.php">Publications</a></li>
                             <li><a href="contact.php#contact-area">Contact</a></li>
                         </ul>
                     </div>
-
-
                 </div>
             </div>
         </div>
@@ -290,7 +286,7 @@ button:hover, a:hover {
 		<div class="col-lg-3">
 		<div class="card">
 		 <div class="text-center">
-		  <img src="images/micheal.jpg"  alt="John"  style="width:100%;max-height:280px">
+		  <img src="images/micheal.jpg" class="img-rounded"  alt="John"  style="width:100%;max-height:280px">
 		  </div>
 		  <h1>Michael Ocilaje </h1>
 		  <p class="title">Board Member</p>
@@ -308,7 +304,7 @@ BSc. (Hons) Agricultural Extension Makerere University (1992); Msc. Development 
 		</div>
 		<div class="col-lg-3">
 		<div class="card">
-		  <img src="images/sam.jpg" alt="John" style="width:100%;max-height:280px">
+		  <img src="images/Sam.jpg" class="img-rounded" alt="John" style="width:100%;max-height:280px">
 		  <h1>Sam Mikenga </h1>
 		  <p class="title">Board Member</p>
 		  <p>Technical Director &amp; Senior Consultant<br /> He has worked with The Netherlands, INDEPTH Network, New Partnerships for Africa’s Development (NEPAD). WWF International, the Global Conservation Organization, PAMOJA Africa Reflect Network, working in more than 22 countries in Africa.
@@ -326,7 +322,7 @@ BSc. (Hons) Agricultural Extension Makerere University (1992); Msc. Development 
 		</div>
 		<div class="col-lg-3">
 		<div class="card">
-		  <img src="images/anguzuR.jpg" alt="John" style="width:100%;max-height:280px">
+		  <img src="images/anguzuR.jpg" class="img-rounded" alt="John" style="width:100%;max-height:280px">
 		  <h1>Robert Anguzu</h1>
 		  <p class="title">Board Member</p>
 		  <p>MA Development Studies, Food Security Fellow (FSF),
@@ -345,7 +341,7 @@ Professional Fellowship Program (PFP), Oklahoma State University, USA BSc. (Hons
 		</div>
 		<div class="col-lg-3">
 		<div class="card">
-		  <img src="images/deo.jpeg"  alt="John" height="50%" style="width:100%;max-height:280px">
+		  <img src="images/deo.jpeg" class="img-rounded" alt="John" height="50%" style="width:100%;max-height:280px">
 		  <h1>Deogracious Aeloi</h1>
 		  <p class="title">Board Member</p>
 		  <p>Procurement &amp; Logistics Expert
@@ -374,60 +370,48 @@ Professional Fellowship Program (PFP), Oklahoma State University, USA BSc. (Hons
         <p style="color:#0d0d0d; font-size: 20px">We’ve assembled a cadre of outside advisors who lend expertise in a variety of categories. These experts help us DEVANALYST  a greater niche for our clients.</p>
             </div>
                 <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="feature-box wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="box-icon">
-                            <!-- <i class="icofont icofont-code-alt"></i> -->
-                        </div>
+                    <div class="feature-box wow fadeInUp text-center" data-wow-delay="0.2s">
+                    
                         <h4>Peter J. Hotez, M.D., Ph.D.</h4>
                         <p>National School of Tropical Medicine<br />Houston, Texas</p>
                         <!-- <a href="#" class="read-more">Read More</a> -->
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="feature-box wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="box-icon">
-                            <!-- <i class="icofont icofont-code-alt"></i> -->
-                        </div>
+                    <div class="feature-box wow fadeInUp text-center" data-wow-delay="0.4s">
+                        
                         <h4>Samuel Kalibala, M.D.</h4>
                         <p>Population Council, Nairobi<br />Joint United Nations Programme on HIV/AIDS (UNAIDS)</p>
                         <!-- <a href="#" class="read-more">Read More</a> -->
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="feature-box wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="box-icon">
-                            <!-- <i class="icofont icofont-person"></i> -->
-                        </div>
+                    <div class="feature-box wow fadeInUp text-center" data-wow-delay="0.6s">
+                        
                         <h4>Florin Pasnicu</h4>
                         <p>Communication &amp; Public Relations Expert<br/>Pasnicu Florin I.E.(Individual Enterprise), Sibiu, Romania</p>
                         <!-- <a href="#" class="read-more">Read More</a> -->
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="feature-box wow fadeInUp" data-wow-delay="1.2s">
-                        <div class="box-icon">
-                            <!-- <i class="icofont icofont-chart-bar-graph"></i> -->
-                        </div>
+                    <div class="feature-box wow fadeInUp text-center" data-wow-delay="1.2s">
+                       
                         <h4>Aggrey Willis Otieno, MA</h4>
                         <p>Child Labour and Trafficking Specialist<br /> Pambazuko Mashinani TB project, Principal Investigator</p>
                         <!-- <a href="#" class="read-more">Read More</a> -->
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="feature-box wow fadeInUp" data-wow-delay="1s">
-                        <div class="box-icon">
-                            <!-- <i class="icofont icofont-files"></i> -->
-                        </div>
+                    <div class="feature-box wow fadeInUp text-center" data-wow-delay="1s">
+                       
                         <h4>Dr. Husam Sadig</h4>
                         <p>Survey &amp; Data Analyst. Director of Statistical System Administration, Alneelain University, Sudan.</p>
                         <!-- <a href="#" class="read-more">Read More</a> -->
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="feature-box wow fadeInUp" data-wow-delay="0.8s">
-                        <div class="box-icon">
-                            <!-- <i class="icofont icofont-money-bag"></i> -->
-                        </div>
+                    <div class="feature-box wow fadeInUp text-center" data-wow-delay="0.8s">
+                        
                         <h4>Wamala Vicent</h4>
                         <p>Sales &amp; Marketing Expert.<br /> With over 10 years experience</p>
                         <!-- <a href="#" class="read-more">Read More</a> -->
@@ -447,30 +431,24 @@ Professional Fellowship Program (PFP), Oklahoma State University, USA BSc. (Hons
         <p style="color:#0d0d0d; font-size: 20px">DEVANALYST has access to several communications experts across the globe and we bring them onto teams as needed.</p>
             </div>
                 <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="feature-box wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="box-icon">
-                            <!-- <i class="icofont icofont-code-alt"></i> -->
-                        </div>
+                    <div class="feature-box wow fadeInUp text-center" data-wow-delay="0.2s">
+                  
                         <h4>Dr. Paul Birevu Muyinda, PhD</h4>
                         <p>Mobile &amp; Electronic Learning Specialist <br /> Certified Netware Administrator (CNA). </p>
                         <!-- <a href="#" class="read-more">Read More</a> -->
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="feature-box wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="box-icon">
-                            <!-- <i class="icofont icofont-code-alt"></i> -->
-                        </div>
+                    <div class="feature-box wow fadeInUp text-center" data-wow-delay="0.4s">
+                        
                         <h4>Jamillah Mwanjisi</h4>
                         <p>Communications &amp; Advocacy specialist with over 20 years’ experience, including 10 years in leadership positions </p>
                         <!-- <a href="#" class="read-more">Read More</a> -->
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="feature-box wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="box-icon">
-                            <!-- <i class="icofont icofont-monitor"></i> -->
-                        </div>
+                    <div class="feature-box wow fadeInUp text-center" data-wow-delay="0.6s">
+                       
                         <h4>Peter Oriare Mbeke</h4>
                         <p>Communication Strategy for the National Integration and
 Cohesion Commission, AWCFS </p>
@@ -483,8 +461,81 @@ Cohesion Commission, AWCFS </p>
     </section>
     <!-- THE BENCH -->
     
-   <!-- Footer================================================== -->
- <?php include_once("footer-area.php"); ?>
+    <!-- Footer-Area -->
+    <footer class="footer-area" id="footer-area">
+        <div class="footer-top section-padding footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-md-3">
+                        <div class="footer-text">
+                            <h4 class="upper">the development analyst</h4>
+                            <p style="color:white;">P.O Box 26162,<br /> Kampala, Uganda<br />Suite 3, Guild Cateen, Makerere University
+                              <br />  Tel: +256-785369829/ +256-700369829/ +266-68475203<br />
+                                Email: info@devanalyst.org</p>
+                            <div class="social-menu">
+                                <a href="#"><i class="icofont icofont-social-facebook"></i></a>
+                                <a href="#"><i class="icofont icofont-social-twitter"></i></a>
+                                <a href="#"><i class="icofont icofont-social-google-plus"></i></a>
+                                <a href="#"><i class="icofont icofont-social-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-2 col-md-offset-1">
+                        <div class="footer-single">
+                            <h4 class="upper">News</h4>
+                            <ul>
+                                <li><a href="team.php#team-area">Team</a></li>
+                                <li><a href="about.php#projects">Completed Projects</a></li> 
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-2">
+                        <div class="footer-single">
+                            <h4 class="upper">Company</h4>
+                            <ul>
+                                
+                                <li><a href="about.php#about-area">About</a></li>
+                                <li><a href="index.php#services">Services</a></li>
+                                <li><a href="#">Development Aid</a></li>
+                                <!-- <li><a href="#">Price</a></li> -->
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-2">
+                        <div class="footer-single">
+                            <h4 class="upper">Resources</h4>
+                            <ul>
+                                <li><a href="contact.php#contact-area">Support</a></li>
+                                <li><a href="contact.php#contact-area">Contact</a></li>
+                                <!-- <li><a href="#">Privacy &amp; Term</a></li> -->
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-2">
+                        <div class="footer-single">
+                            <h4 class="upper">Services</h4>
+                            <ul>
+                                <li><a href="trainings.php#service-area">Trainings</a></li>
+                                <li><a href="stratcomm.php#service-area">Strategic Communication</a></li>
+                                <li><a href="hosting.php#service-area">Web Development &amp; Hosting</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <p class="copyright">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Devanalyst.</p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
     <!-- Footer-Area / -->
 
 

@@ -1,3 +1,33 @@
+<?php 
+include 'db.php';
+include 'config.php';
+mysqli_select_db($db, DB_NAME) or die(mysqli_error($db));
+$sub_name = "";
+$sub_email = "";
+$message = "";
+if(isset($_POST["subscribe"])){
+    $sub_name    = stripslashes(trim($_POST['sub_name']));
+    $sub_email    = stripslashes(trim($_POST['sub_email']));
+
+    $sub_existing = $db->query("SELECT * FROM subscribers WHERE email ='$sub_email'");
+    if ($sub_existing->num_rows == 0) {
+        $query = 'INSERT INTO subscribers 
+        VALUES (null, "'.$sub_name.'", "'.$sub_email.'")';
+            
+        if($db->query($query) == TRUE){
+        $message = "Congratulations. You have subscribed to our news letter";
+
+        }else{
+        $message  = "Error adding to subscribers: Connection Error";
+        // echo mysqli_error($db);
+        }
+    }else{
+        $message= "Already subscribed";
+    }
+
+}
+
+?>
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -125,12 +155,12 @@ a{
                             <li><a href="#search-box" data-toggle="collapse"><i class="icofont icofont-search-alt-2"></i></a></li>
                             <li class="select-cuntry">
                                 <select name="counter" id="counter">
-                                    <option value="ENG">Eng</option>
+                                    <option value="ENG">ENG</option>
                                 </select>
                             </li>
                         </ul>
                         <ul class="nav navbar-nav primary-menu">
-                            <li class="active"><a href="index.php#home-area">home</a></li>
+                            <li class="active"><a href="index.php#home-area">Home</a></li>
                             <li class="dropdown"><a>About</a>
                                 <ul class="dropdown-content">
                                 
@@ -148,7 +178,7 @@ a{
                                     <li><a href="stratcomm.php#service-area" style="text-transform: none;">Communication</a></li>
                                     <li><a href="public.php#service-area" style="text-transform: none;">Public Relations</a></li>
                                     <li><a href="services.php#service-area" style="text-transform: none;">Other services</a></li>
-                                    <li><a href="services.php#service-area" style="text-transform: none;">Agribusiness</a></li>
+                                    <li><a href="agribusiness.php#service-area" style="text-transform: none;">Agribusiness</a></li>
                                 </ul></li>
                             <li><a href="publish.php">Publications</a></li>
                             <li><a href="contact.php#contact-area">Contact</a></li>
@@ -200,7 +230,8 @@ a{
                         <a href="about.php#service-area" class="bttn bttn-primary bttn-sm ">Learn More</a>
                     </div></div>
                 </div>
-                <div class="hidden-xs col-sm-6 col-md-8">
+                <!--START SLIDER -->
+             <div class="hidden-xs col-sm-6 col-md-8">
                 <div  class="row" style="width:95%; height:95%;">
 
                                                     <!-- <div id="wrapper"> -->
@@ -213,58 +244,28 @@ a{
                       </ol>
 
                       <!-- Wrapper for slides -->
-                      <div class="carousel-inner">"
+                      <div class="carousel-inner">
                         <div class="item img-rounded active">
-                          <img src="images/imgn10.jpg" class="img-rounded" alt="Chania">
+                          <img src="images/imgn10_i.jpg" class="img-rounded" alt="Chania">
                           <div class="carousel-caption">
-                            <h3 style="color:ghostwhite;  text-shadow: 0 0 10px hsla(183, 100%, 2%, 0.5),
-                 0 0 10px hsla(183, 100%, 2%, 0.5),
-                 0 0 10px hsla(183, 100%, 2%, 0.5),
-                 0 0 5px hsla(183, 100%, 2%, 1),
-                 0 0 5px hsla(183, 100%, 2%, 1),
-                 0 0 5px hsla(183, 100%, 2%, 1);"><b>Northern Nigeria ( 2009-2011)</b></h3>
-                            <p  style="color:ghostwhite;  text-shadow: 0 0 10px hsla(183, 100%, 2%, 0.5),
-                 0 0 10px hsla(183, 100%, 2%, 0.5),
-                 0 0 10px hsla(183, 100%, 2%, 0.5),
-                 0 0 5px hsla(183, 100%, 2%, 1),
-                 0 0 5px hsla(183, 100%, 2%, 1),
-                 0 0 5px hsla(183, 100%, 2%, 1);">The Communication campaigns conducted in NIGERIA to promote Routine Immunisation and polio eradication.</p>
+                            <h3 style="color:ghostwhite;"><b>Northern Nigeria ( 2009-2011)</b></h3>
+                            <p>The Communication campaigns conducted in NIGERIA to promote Routine Immunisation and polio eradication.</p>
                           </div>
                         </div>
 
                         <div class="item">
-                          <img src="images/imgn5.jpg" class="img-rounded" alt="Chicago">
+                          <img src="images/imgn5_i.jpg" class="img-rounded" alt="Chicago">
                           <div class="carousel-caption">
-                            <h3 style="color:ghostwhite;  text-shadow: 0 0 10px hsla(183, 100%, 2%, 0.5),
-                 0 0 10px hsla(183, 100%, 2%, 0.5),
-                 0 0 10px hsla(183, 100%, 2%, 0.5),
-                 0 0 5px hsla(183, 100%, 2%, 1),
-                 0 0 5px hsla(183, 100%, 2%, 1),
-                 0 0 5px hsla(183, 100%, 2%, 1);"><b>EAC Region( 2015-2016)</b></h3>
-                            <p  style="color:ghostwhite; text-shadow: 0 0 10px hsla(183, 100%, 2%, 0.5),
-                 0 0 10px hsla(183, 100%, 2%, 0.5),
-                 0 0 10px hsla(183, 100%, 2%, 0.5),
-                 0 0 5px hsla(183, 100%, 2%, 1),
-                 0 0 5px hsla(183, 100%, 2%, 1),
-                 0 0 5px hsla(183, 100%, 2%, 1);">A multi-media Awarenress Campaign on the benefits and opportunities of regional integration and trade.</p>
+                            <h3 style="color:ghostwhite;"><b>EAC Region</b></h3>
+                            <p>Music/ Dace Recorded, Multiplied and demystified to reach millions in the region!</p>
                           </div>
                         </div>
 
                         <div class="item">
-                          <img src="images/comn stratgy.jpg" class="img-rounded" alt="New York">
+                          <img src="images/comn stratgy_i.jpg" class="img-rounded" alt="New York">
                           <div class="carousel-caption">
-                            <h3 style="color:ghostwhite; text-shadow: 0 0 10px hsla(183, 100%, 2%, 0.5),
-                 0 0 10px hsla(183, 100%, 2%, 0.5),
-                 0 0 10px hsla(183, 100%, 2%, 0.5),
-                 0 0 5px hsla(183, 100%, 2%, 1),
-                 0 0 5px hsla(183, 100%, 2%, 1),
-                 0 0 5px hsla(183, 100%, 2%, 1);"><b>Lesotho/SADC ( 2018-2019) </b></h3>
-                            <p  style="color:ghostwhite; text-shadow: 0 0 10px hsla(183, 100%, 2%, 0.5),
-                 0 0 10px hsla(183, 100%, 2%, 0.5),
-                 0 0 10px hsla(183, 100%, 2%, 0.5),
-                 0 0 5px hsla(183, 100%, 2%, 1),
-                 0 0 5px hsla(183, 100%, 2%, 1),
-                 0 0 5px hsla(183, 100%, 2%, 1);">Development and implementation of the Lesotho reforms communications strategy.</p>
+                            <h3 style="color:ghostwhite;"><b>Communications Strategy </b></h3>
+                            <p>Reviewing Short-term  Reforms Communications Strategy and its implementations</p>
                           </div>
                         </div>
                       </div>
@@ -281,8 +282,9 @@ a{
                     </div>
                     
                 </div>
-                </div>
-            </div>
+             </div>
+             <!--END SLIDER -->
+          </div>
         </div>
 
 
@@ -291,7 +293,7 @@ a{
             <div class="row" style=" padding: 0px;">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3" >
                     <div class="page-title text-center">
-                        <h2 class="title" style="color:#0d0d0d;font-size:20px" >Our Best Services</h2>
+                        <h2 class="title"style="color:#0d0d0d;font-size:20px" >Our Best Services</h2>
                        
                     </div>
                 </div>
@@ -363,21 +365,21 @@ a{
 
    <div class="container cta-100 ">
         <div class="container">
-             <div class="row">
                 <br>
-                            <div class="col-xs-8 col-md-9 col-lg-10 tiny">
+                            <div class="col-xs-4 col-md-4 col-lg-8 pull-left">
                                 <div class="title">
                                     <span> <h2 class="title"style="color:#0d0d0d;font-size:20px" >LATEST NEWS.</h2></span>
                                   
                                 </div>
                             </div>
-                            <div class="col-xs-4 col-md-3 col-lg-2 tiny">
+                            <div class="col-xs-2 col-md-3 col-lg-3 pull-right">
                                 <!-- <button type="button" class="btn big " ><h2 class="title"style="color:#0d0d0d;font-size:10px" >SEE ALL NEWS</h2></button>
                             </div> -->
                              <div class="wow fadeInUp" data-wow-delay="0.7s">
-                        <a href="about.php#service-area" class="bttn bttn-primary bttn-sm ">ALL NEWS</a>
+                        <a href="blog/posts.php" class="bttn bttn-primary bttn-sm ">SEE ALL NEWS</a>
                     </div>
                         </div>
+             <div class="row">
 
 
           <div class="row blog">
@@ -430,8 +432,8 @@ a{
                         <div class="box-text">
                             <h4><?php echo $row['title'];?></h4>
                              <p><i class="icofont icofont-ui-calendar blog-list-meta"></i> <?php echo $row['date'];?></p>
-                            <p style="color:#0d0d0d;"><?php echo $row['message'];?>.</p>
-                        <a href="#" class="read-more">Read More</a>
+                            <p style="color:#0d0d0d; width: 300px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" maxlength="10"><?php echo $row['message'];?></p>
+                        <a href="blog/posts.php" class="read-more ">Read More</a>
                                </a> 
                         </div>
                     </div>
@@ -465,7 +467,41 @@ a{
                             </div>
                             <div class="col-xs-4 col-md-3 col-lg-2 tiny">
                              <div class="wow fadeInUp" data-wow-delay="0.7s">
-                        <a href="about.php#service-area" class="bttn bttn-primary bttn-sm ">Subscribe Now</a>
+                        <a data-toggle="modal" data-target="#exampleModal"  data-whatever="@mdo" href="#" class="bttn bttn-primary bttn-sm ">Subscribe Now</a>
+                        <!-- DATA MODAL-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="exampleModalLabel"><b>Subscribe to Our news letter</b>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button></h4>
+          </div>
+          <div class="modal-body">
+            <form method="POST" action="index.php">
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Name:</label>
+                <input type="text" name="sub_name" class="form-control" id="recipient-name" required>
+              </div>
+              <div class="form-group">
+                <label for="message-text" class="col-form-label">Email:</label>
+                <input type="email" name="sub_email" class="form-control" id="recipient-email" required>
+              </div>
+                <!-- <input type="submit" class="form-control" value="Send message" id="recipient-name"> -->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <!-- <button></button>  -->
+            <!-- <button type="button" class="btn btn-primary">Send message</button> -->
+            <button type="submit" name="subscribe" class="btn btn-primary">Subscribe</button>
+          </div>
+         </form>
+         <!-- <script> alert('<?php //echo $message; ?>')</script> -->
+        </div>
+      </div>
+    </div>
+                        <!-- END MODAL -->
                     </div>
 
                                 <!-- <button type="button" class="btn big " ></button> -->
@@ -563,9 +599,82 @@ a{
      </div> 
 
 
-   <!-- Footer
- ================================================== -->
- <?php include_once("footer-area.php"); ?>
+    <!-- Footer-Area -->
+    <footer class="footer-area" id="footer-area">
+        <div class="footer-top section-padding footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-md-3">
+                        <div class="footer-text" >
+                            <h4 class="upper" align="center">The Development Analyst</h4>
+                            <p align="center">P.O Box 26162,<br /> Block 28, Plot 951/952 Bombo Road, Opposite Kubiri Round-About <br/> (Former URA Building Lvl 3)<br/> Kampala, Uganda<br/>
+                               Tel:<br /> +256-776 895 620<br /> +256-754 896 405<br /> +256-756 528 176<br />
+                                Email: info@devanalyst.org</p>
+                            <div class="social-menu">
+                                <a href="https://www.facebook.com/thedevelopmentanalyst/"><i class="icofont icofont-social-facebook"></i></a>
+                                <a href="#"><i class="icofont icofont-social-twitter"></i></a>
+                                <a href="#"><i class="icofont icofont-social-google-plus"></i></a>
+                                <a href="#"><i class="icofont icofont-social-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-2 col-md-offset-1">
+                        <div class="footer-single">
+                            <h4 class="upper">News</h4>
+                            <ul>
+                                <li><a href="team.php#team-area">Team</a></li>
+                                <li><a href="about.php#projects">Completed Projects</a></li> 
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-2">
+                        <div class="footer-single">
+                            <h4 class="upper">Company</h4>
+                            <ul>
+                                
+                                <li><a href="about.php#about-area">About</a></li>
+                                <li><a href="index.php#services">Services</a></li>
+                                <li><a href="#">Development Aid</a></li>
+                                <!-- <li><a href="#">Price</a></li> -->
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-2">
+                        <div class="footer-single">
+                            <h4 class="upper">Resources</h4>
+                            <ul>
+                                <li><a href="contact.php#contact-area">Support</a></li>
+                                <li><a href="contact.php#contact-area">Contact</a></li>
+                                <!-- <li><a href="#">Privacy &amp; Term</a></li> -->
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-2">
+                        <div class="footer-single">
+                            <h4 class="upper">Services</h4>
+                            <ul>
+                                <li><a href="trainings.php#service-area">Trainings</a></li>
+                                <li><a href="stratcomm.php#service-area">Strategic Communication</a></li>
+                                <li><a href="hosting.php#service-area">Web Development &amp; Hosting</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <p class="copyright">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Devanalyst.</p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer-Area / -->
 
     <!--Subscription popup form-->
 	<div style="margin: auto;width: 60%;">
@@ -576,7 +685,7 @@ a{
        <div id="popup-box-content">
         <h1>Subscribe to The DevAnalyst Newsletter</h1>
            <p>
-               Stay up to date on the latest in web, mobile, and game development, plus receive exclusive content by
+               Stay up to date on the latest in web, mobile development, plus receive exclusive content by
                subscribing to our newsletter.
            </p>
 <form id="fupForm" action="save.php" name="form1" method="post">
